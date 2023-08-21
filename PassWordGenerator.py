@@ -1,12 +1,13 @@
 # my required libraries
 import random
 import string
+import getpass # import the getpass module
 
 # choose your difficulity
-level = input('Choose your password level(simple,medium,high): ')
+level = getpass.getpass('Choose your password level(simple,medium,high): ') # use getpass to hide the user input
 
 #password character numbers
-char_num = int(input('How many characters does your password have? '))
+char_num = int(getpass.getpass('How many characters does your password have? ')) # use getpass to hide the user input
 
 #generating password
 if level == 'simple':
@@ -29,3 +30,4 @@ elif level == 'high':
 
 #Result    
 print(TotalPassWord)
+
