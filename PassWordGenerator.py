@@ -4,10 +4,21 @@ import string
 import getpass # import the getpass module
 
 # choose your difficulity
-level = getpass.getpass('Choose your password level(simple,medium,high): ') # use getpass to hide the user input
+level = ''
+while level not in ('simple', 'medium', 'high'): # use a while loop to validate the user input
+    level = getpass.getpass('Choose your password level(simple,medium,high): ') # use getpass to hide the user input
+    if level not in ('simple', 'medium', 'high'):
+        print('Invalid level. Please try again.')
 
 #password character numbers
-char_num = int(getpass.getpass('How many characters does your password have? ')) # use getpass to hide the user input
+char_num = 0
+while char_num <= 0: # use a while loop to validate the user input
+    try:
+        char_num = int(getpass.getpass('How many characters does your password have? ')) # use getpass to hide the user input
+        if char_num <= 0:
+            print('Invalid number. Please enter a positive integer.')
+    except ValueError: # use a try-except block to catch any exceptions
+        print('Invalid input. Please enter a valid number.')
 
 #generating password
 if level == 'simple':
@@ -30,4 +41,5 @@ elif level == 'high':
 
 #Result    
 print(TotalPassWord)
+
 
